@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7c0631e09ece9ccb9978e518b92566feea9870579d2e481a58ad78f80b1a7648
-size 310
+FROM openjdk:12
+WORKDIR /usr/src/Project
+RUN yum -y install libX11-devel.x86_64
+RUN yum -y install libXext.x86_64
+RUN yum -y install libXrender.x86_64
+RUN yum -y install libXtst.x86_64
+COPY CS1660Project-0.0.1-SNAPSHOT-shaded.jar /usr/src/Project
+CMD ["java", "-jar", "CS1660Project-0.0.1-SNAPSHOT-shaded.jar"]
